@@ -2,44 +2,22 @@ FROM mophos/mmis-node-nginx
 
 LABEL maintainer="Satit Rianpit <rianpit@gmail.com>"
 
-WORKDIR /home/mmis
+WORKDIR /home/h4u
 
 RUN npm i npm@latest -g
 
 RUN npm i -g pm2
 
-RUN git clone https://github.com/mophos/mmis-frontend-dist \
-  && git clone https://github.com/mophos/mmis-inventory-backend \
-  && cd mmis-inventory-backend \
-  && mv views/css.pug.txt views/css.pug \
-  && npm i && npm run build && cd .. \
-  && git clone https://github.com/mophos/mmis-purchase-backend \
-  && cd mmis-purchase-backend \
-  && mv views/css.pug.txt views/css.pug \
-  && npm i && npm run build && cd .. \
-  && git clone https://github.com/mophos/mmis-material-backend \
-  && cd mmis-material-backend \
-  && mv views/css.pug.txt views/css.pug \
-  && npm i && npm run build && cd .. \
-  && git clone https://github.com/mophos/mmis-management-backend \
-  && cd mmis-management-backend \
-  && mv views/css.pug.txt views/css.pug \
-  && npm i && npm run build && cd .. \ 
-  && git clone https://github.com/mophos/mmis-portal-backend \
-  && cd mmis-portal-backend \
-  && mv views/css.pug.txt views/css.pug \
-  && npm i && npm run build && cd .. \ 
-  && git clone https://github.com/mophos/mmis-contract-backend \
-  && cd mmis-contract-backend \
-  && mv views/css.pug.txt views/css.pug \
-  && npm i && npm run build && cd .. \ 
-  && git clone https://github.com/mophos/mmis-planning-backend \
-  && cd mmis-planning-backend \
-  && mv views/css.pug.txt views/css.pug \
-  && npm i && npm run build && cd .. \
-  && git clone https://github.com/mophos/mmis-documents-management \
-  && cd mmis-documents-management \
-  && npm i && npm run build && cd ..
+RUN  apk add --no-cache --virtual deps \
+  python \
+  build-base 
+
+COPY ./dist ./h4u-his-dist
+
+RUN  git clone https://github.com/mophos/h4u-api-his.git \
+  && cd h4u-api-his \
+  && npm i \
+  && npx tsc
 
 COPY ./server-script/ .
 

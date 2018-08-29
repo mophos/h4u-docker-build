@@ -1,71 +1,12 @@
 {
   "apps": [
     {
-      "name": "contract-web",
-      "script": "./contract-web-server.js"
+      "name": "h4u-web-his",
+      "script": "./h4u-web-server.js"
     },
     {
-      "name": "inventory-web",
-      "script": "./inventory-web-server.js"
-    },
-    {
-      "name": "management-web",
-      "script": "./management-web-server.js"
-    },
-    {
-      "name": "material-web",
-      "script": "./material-web-server.js"
-    },
-    {
-      "name": "portal-web",
-      "script": "./portal-web-server.js"
-    },
-    {
-      "name": "purchase-web",
-      "script": "./purchase-web-server.js"
-    },
-    {
-      "name": "planning-web",
-      "script": "./planning-web-server.js"
-    },
-    {
-      "name": "contract-api",
-      "script": "./mmis-contract-backend/app/bin/www.js",
-      "wait_ready": true
-    },
-    {
-      "name": "inventory-api",
-      "script": "./mmis-inventory-backend/app/bin/www.js",
-      "wait_ready": true
-    },
-    {
-      "name": "management-api",
-      "script": "./mmis-management-backend/app/bin/www.js",
-      "wait_ready": true
-    },
-    {
-      "name": "material-api",
-      "script": "./mmis-material-backend/app/bin/www.js",
-      "wait_ready": true
-    },
-    {
-      "name": "planning-api",
-      "script": "./mmis-planning-backend/app/bin/www.js",
-      "wait_ready": true
-    },
-    {
-      "name": "portal-api",
-      "script": "./mmis-portal-backend/app/bin/www.js",
-      "wait_ready": true
-    },
-    {
-      "name": "purchase-api",
-      "script": "./mmis-purchase-backend/app/bin/www.js",
-      "wait_ready": true
-    },
-    {
-      "name": "document-api",
-      "script": "./mmis-documents-management/app/bin/www.js",
+      "name": "h4u-api-his",
+      "script": "./h4u-api-his/app/bin/www.js",
       "wait_ready": true
     }
   ]
