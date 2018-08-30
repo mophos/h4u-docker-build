@@ -1,6 +1,6 @@
 FROM mophos/mmis-node-nginx
 
-LABEL maintainer="Satit Rianpit <rianpit@gmail.com>"
+LABEL maintainer="Naphattharawat <naphattharawat@gmail.com>"
 
 WORKDIR /home/h4u
 

@@ -1,0 +1,14 @@
+version: '3'
+services:
+  h4u:
+    image: mophos/h4u-his:latest
+    container_name: "h4u-his"
+    volumes:
+      - ./h4u-config:/home/h4u/h4u-api-his/h4u-config
+    ports: 
+      - 80:80
+  watchtower:
+    image: v2tec/watchtower
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    command: watchtower h4u-his --interval 30
