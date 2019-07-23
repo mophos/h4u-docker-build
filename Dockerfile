@@ -1,4 +1,4 @@
-FROM mophos/mmis-node-nginx
+FROM mophos/mmis-nginx
 
 LABEL maintainer="Naphattharawat <naphattharawat@gmail.com>"
 
@@ -8,16 +8,17 @@ RUN npm i npm@latest -g
 
 RUN npm i -g pm2
 
-RUN  apk add --no-cache --virtual deps \
-  python \
-  build-base 
+RUN npm i -g typescript
+
+RUN  apk add --no-cache --virtual \
+  # deps \
+  python
+# build-base 
 
 COPY ./dist ./h4u-his-dist
 
-RUN  git clone https://github.com/mophos/h4u-api-his.git \
-  && cd h4u-api-his \
-  && npm i \
-  && npx tsc
+RUN git clone https://github.com/mophos/h4u-api-his.git \
+  && cd h4u-api-his && npm i && npm i mssql@4.1.0  && npx tsc && cd ..
 
 COPY ./server-script/ .
 
